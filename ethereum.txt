@@ -1,0 +1,150 @@
+Node1:
+{
+  "config": {
+    "chainId": 4567,
+    "homesteadBlock": 0,
+    "eip150Block": 0,
+    "eip150Hash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "eip155Block": 0,
+    "eip158Block": 0,
+    "byzantiumBlock": 0,
+    "constantinopleBlock": 0,
+    "petersburgBlock": 0,
+    "istanbulBlock": 0,
+    "ethash": {}
+  },  
+  "nonce": "0x0",
+  "timestamp": "0x5e64ebff",
+  "extraData": "0x0000000000000000000000000000000000000000000000000000000000000000",
+  "gasLimit": "0x47b760",
+  "difficulty": "0x80",
+  "mixHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+  "coinbase": "0x0000000000000000000000000000000000000000",
+  "alloc": {},
+  "number": "0x0",
+  "gasUsed": "0x0",
+  "parentHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
+}
+
+geth --datadir test init ./genesis.json
+
+geth --datadir ./test   --networkid 4567 --port 50900 --rpc --rpcapi=db,eth,web3,personal --rpcport "30223" --rpcaddr=0.0.0.0 --nodiscover --allow-insecure-unlock --mine --miner.threads 1 console
+
+nohup geth --datadir ./test   --networkid 4567 --port 50900 --rpc --rpcapi=db,eth,web3,personal --rpcport "30223" --rpcaddr=0.0.0.0 --nodiscover --allow-insecure-unlock --mine --miner.threads 1 &
+
+personal.newAccount("password")  //miner
+
+admin.nodeInfo.enode
+"enode://ff65ef56a5937aaa4890bcd78b6ac13e8cd3fdf25b931287d912dfb8026faa91657aec761376c181fd30f61486e7751acae9d72ebf16b6bf71680423a9a4bcc9@127.0.0.1:50900?discport=0"
+
+miner.start(2)
+
+geth --datadir test attach ipc:./geth.ipc
+
+ps au | grep geth
+
+kill -9 "number"
+eth.getBalance("0x1cfa0ccb6014e9e9dc427c50ba93e062f83c0269")
+
+Node2:
+{
+  "config": {
+    "chainId": 4567,
+    "homesteadBlock": 0,
+    "eip150Block": 0,
+    "eip150Hash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "eip155Block": 0,
+    "eip158Block": 0,
+    "byzantiumBlock": 0,
+    "constantinopleBlock": 0,
+    "petersburgBlock": 0,
+    "istanbulBlock": 0,
+    "ethash": {}
+  },  
+  "nonce": "0x0",
+  "timestamp": "0x5e64ebff",
+  "extraData": "0x0000000000000000000000000000000000000000000000000000000000000000",
+  "gasLimit": "0x47b760",
+  "difficulty": "0x80",
+  "mixHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+  "coinbase": "0x0000000000000000000000000000000000000000",
+  "alloc": {},
+  "number": "0x0",
+  "gasUsed": "0x0",
+  "parentHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
+}
+
+geth --datadir test init ./genesis.json
+
+geth --datadir ./test   --networkid 4567 --port 50901 --rpc --rpcapi=db,eth,web3,personal --rpcport "30224" --rpcaddr=0.0.0.0 --nodiscover --allow-insecure-unlock --mine --miner.threads 1 console
+
+nohup geth --datadir ./test   --networkid 4567 --port 50901 --rpc --rpcapi=db,eth,web3,personal --rpcport "30224" --rpcaddr=0.0.0.0 --nodiscover --allow-insecure-unlock --mine --miner.threads 1 &
+
+personal.newAccount("password")  //miner
+
+admin.peers
+
+admin.addPeer("enode://ff65ef56a5937aaa4890bcd78b6ac13e8cd3fdf25b931287d912dfb8026faa91657aec761376c181fd30f61486e7751acae9d72ebf16b6bf71680423a9a4bcc9@127.0.0.1:50900?discport=0")
+
+admin.nodeInfo.enode
+"enode://28e033f072c85de0d6e396d423a18d4ef621d650435ac8b07bf85b19417ad7d4ba6d732176ac98ad0b332a8ae202714f3675f539efbe75891f2569d04f464f29@127.0.0.1:50901?discport=0"
+
+eth.blockNumber
+
+geth --datadir test attach ipc:./geth.ipc
+
+ps au | grep geth
+
+kill -9 "number"
+eth.getBalance("0x1cfa0ccb6014e9e9dc427c50ba93e062f83c0269")
+
+Node3:
+{
+  "config": {
+    "chainId": 4567,
+    "homesteadBlock": 0,
+    "eip150Block": 0,
+    "eip150Hash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "eip155Block": 0,
+    "eip158Block": 0,
+    "byzantiumBlock": 0,
+    "constantinopleBlock": 0,
+    "petersburgBlock": 0,
+    "istanbulBlock": 0,
+    "ethash": {}
+  },  
+  "nonce": "0x0",
+  "timestamp": "0x5e64ebff",
+  "extraData": "0x0000000000000000000000000000000000000000000000000000000000000000",
+  "gasLimit": "0x47b760",
+  "difficulty": "0x80",
+  "mixHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+  "coinbase": "0x0000000000000000000000000000000000000000",
+  "alloc": {},
+  "number": "0x0",
+  "gasUsed": "0x0",
+  "parentHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
+}
+
+geth --datadir test init ./genesis.json
+
+geth --datadir ./test   --networkid 4567 --port 50902 --rpc --rpcapi=db,eth,web3,personal --rpcport "30225" --rpcaddr=0.0.0.0 --nodiscover --allow-insecure-unlock --mine --miner.threads 1 console
+
+nohup geth --datadir ./test   --networkid 4567 --port 50902 --rpc --rpcapi=db,eth,web3,personal --rpcport "30225" --rpcaddr=0.0.0.0 --nodiscover --allow-insecure-unlock --mine --miner.threads 1 &
+
+personal.newAccount("password")  //miner
+
+admin.peers
+
+admin.addPeer("enode://28e033f072c85de0d6e396d423a18d4ef621d650435ac8b07bf85b19417ad7d4ba6d732176ac98ad0b332a8ae202714f3675f539efbe75891f2569d04f464f29@127.0.0.1:50901?discport=0")
+
+admin.addPeer("enode://ff65ef56a5937aaa4890bcd78b6ac13e8cd3fdf25b931287d912dfb8026faa91657aec761376c181fd30f61486e7751acae9d72ebf16b6bf71680423a9a4bcc9@127.0.0.1:50900?discport=0")
+
+eth.blockNumber
+
+geth --datadir test attach ipc:./geth.ipc
+
+ps au | grep geth
+
+kill -9 "number"
+eth.getBalance("0x1cfa0ccb6014e9e9dc427c50ba93e062f83c0269")
