@@ -36,17 +36,17 @@
 
 ## Create a MySql DB
 > Install MySql DB. 
-> Step 1. `sudo apt-get install mysql-server`
-> Step 2. `sudo apt install mysql-client`
-> Step 3. `sudo apt install libmysqlclient-dev`
-> Step 4. `sudo mysql`
-> Step 5. `SELECT user,authentication_string,plugin,host FROM mysql.user;`
-> Step 6. `ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '12345678';`
-> Step 7. `FLUSH PRIVILEGES;`
-> Step 8. `SELECT user,authentication_string,plugin,host FROM mysql.user;`
-> Step 9. `exit`
-> Step 10. `sudo mysql -u root -p`
-> Step 11. `show databases;`
+> 1. `sudo apt-get install mysql-server`
+> 2. `sudo apt install mysql-client`
+> 3. `sudo apt install libmysqlclient-dev`
+> 4. `sudo mysql`
+> 5. `SELECT user,authentication_string,plugin,host FROM mysql.user;`
+> 6. `ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '12345678';`
+> 7. `FLUSH PRIVILEGES;`
+> 8. `SELECT user,authentication_string,plugin,host FROM mysql.user;`
+> 9. `exit`
+> 10. `sudo mysql -u root -p`
+> 11. `show databases;`
 
 ## Create an ethereum
 > 1. Use `mkdir ethereum` to create a new folder.
